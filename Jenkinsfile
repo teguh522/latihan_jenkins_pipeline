@@ -1,6 +1,5 @@
 pipeline{
-    agent any
-
+    agent {
     node {
     def remote = [:]
     remote.name = 'palimanan'
@@ -8,12 +7,13 @@ pipeline{
     remote.user = 'sysadmin'
     remote.password = 'hasnarsjhmc'
     remote.allowAnyHosts = true
-    stage('Remote SSH') {
-            sshCommand remote: remote, command: "ls -l"
-        }
+    }
     }
 
     stages{
+            stage('Remote SSH') {
+            sshCommand remote: remote, command: "ls -l"
+        }
         stage("hello"){
             steps{
                 echo "hello"
