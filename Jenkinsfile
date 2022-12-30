@@ -7,4 +7,9 @@ pipeline{
             }
         }
     }
+    post{
+        always{
+            echo "selalu di jalankan"
+        }
+    }
 }
