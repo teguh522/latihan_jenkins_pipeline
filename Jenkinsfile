@@ -1,6 +1,6 @@
 def remote = [:]
 remote.name = 'palimanan'
-remote.host = '192.168.45.3'
+remote.host = '36.91.115.125'
 remote.user = 'sysadmin'
 remote.password = 'hasnarsjhmc'
 remote.allowAnyHosts = true
