@@ -1,5 +1,5 @@
 def remote = [:]
-remote.name = 'palimanan'
+remote.name = 'sysadmin'
 remote.host = '36.91.115.125'
 remote.user = 'sysadmin'
 remote.password = 'hasnarsjhmc'
