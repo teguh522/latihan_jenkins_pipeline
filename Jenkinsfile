@@ -11,6 +11,11 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Hello test'
+                script{
+                    for(int i=8;i<10;i++){
+                        echo("script ${i}")
+                    }
+                }
             }
         }
         stage('Deploy') {
