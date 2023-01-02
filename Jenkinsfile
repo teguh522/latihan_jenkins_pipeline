@@ -4,6 +4,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Hallo build"
+                sleep(5)
+                sh("ls -a")
             }
         }
         stage('Test') {
