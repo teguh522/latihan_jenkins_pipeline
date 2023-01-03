@@ -31,7 +31,8 @@ pipeline {
         }
         stage('SSH Remote'){
             steps{
-                sshCommand remote: remote, command: sh("cd fullmmsimrs && git pull origin main")
+                sshCommand remote: remote, command: "cd fullmmsimrs && git pull origin main"
+                sshCommand remote: remote, command: "cd fullmmsimrs && yarn"
             }
         }
     }
