@@ -8,6 +8,9 @@ pipeline {
     agent any
     stages {
         stage('Build') {
+            when{
+                branch "dev"
+            }
             steps {
                 echo "Hallo build"
                 sleep(5)
@@ -27,12 +30,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Hello deploy'
-            }
-        }
-        stage('SSH Remote'){
-            steps{
-                sshCommand remote: remote, command: "cd fullmmsimrs && git pull origin main"
-                sshCommand remote: remote, command: "cd fullmmsimrs && yarn"
             }
         }
     }
