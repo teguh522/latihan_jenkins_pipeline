@@ -23,6 +23,16 @@ pipeline {
                 echo 'Hello deploy'
             }
         }
+        stage('SSH Remote'){
+            steps{
+                sshagent(credentials: ['majalengka-ssh']) {
+                sh('''
+                    ssh grantia@36.95.46.181
+                    ls -a
+                ''')
+                }
+            }
+        }
     }
     post {
         always {
