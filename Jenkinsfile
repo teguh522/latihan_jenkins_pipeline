@@ -1,3 +1,9 @@
+def remote = [:]
+remote.name = 'grantia'
+remote.host = '36.95.46.181'
+remote.user = 'grantia'
+remote.password = 'grantiahasna'
+remote.allowAnyHosts = true
 pipeline {
     agent any
     stages {
@@ -25,12 +31,7 @@ pipeline {
         }
         stage('SSH Remote'){
             steps{
-                sshagent(credentials: ['majalengka-ssh']) {
-                sh('''
-                    ssh -o StrictHostKeyChecking=no grantia@36.95.46.181
-                    ls -a
-                ''')
-                }
+                sshCommand remote: remote, command: sh("cd fullmmsimrs && git pull origin main")
             }
         }
     }
