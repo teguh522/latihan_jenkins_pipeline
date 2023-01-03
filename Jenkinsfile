@@ -15,8 +15,6 @@ pipeline {
                 sh '''git checkout main
                 git pull origin main
                 git cherry-pick ${GIT_COMMIT}
-                git add .
-                git commit
                 git push origin main
                 '''
             }
