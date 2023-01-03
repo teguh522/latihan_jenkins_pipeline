@@ -12,11 +12,6 @@ pipeline {
                 branch "dev"
             }
             steps {
-<<<<<<< HEAD
-                echo "Hallo build"
-                sleep(5)
-                sh("ls -a")
-=======
                 sh '''git checkout main
                 git pull origin main
                 git cherry-pick ${GIT_COMMIT}
@@ -24,7 +19,6 @@ pipeline {
                 git commit
                 git push origin main
                 '''
->>>>>>> 2ef709f (fix conflix merge dari cherry-pick)
             }
         }
         stage('Test') {
