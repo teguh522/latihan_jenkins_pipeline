@@ -13,6 +13,7 @@ pipeline {
             }
             steps {
                 sh '''git checkout main
+                git pull origin main
                 git cherry-pick ${GIT_COMMIT}
                 git push origin main
                 '''
