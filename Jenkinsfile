@@ -27,7 +27,7 @@ pipeline {
             steps{
                 sshagent(credentials: ['majalengka-ssh']) {
                 sh('''
-                    ssh grantia@36.95.46.181
+                    ssh -o StrictHostKeyChecking=no grantia@36.95.46.181
                     ls -a
                 ''')
                 }
