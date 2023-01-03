@@ -7,14 +7,15 @@ remote.allowAnyHosts = true
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Merge') {
             when{
                 branch "dev"
             }
             steps {
-                echo "Hallo build"
-                sleep(5)
-                sh("ls -a")
+                sh '''git checkout main
+                git cherry-pick ${GIT_COMMIT}
+                git push origin main
+                '''
             }
         }
         stage('Test') {
