@@ -9,11 +9,11 @@ pipeline {
     stages {
         stage('Git') {
             steps {
-                sh """
+                sh '''
                 git checkout dev
                 git cherry-pick ${GIT_COMMIT}
                 git push origin dev
-                """
+                '''
                 }
             }
         }
