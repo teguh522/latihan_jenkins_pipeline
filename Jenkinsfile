@@ -9,10 +9,12 @@ pipeline {
     stages {
         stage('Git') {
             steps {
-               checkout scmGit(
-                    branches: [[name: 'dev']],
-                    userRemoteConfigs: [[url: 'https://github.com/teguh522/latihan_jenkins_pipeline.git']]
-                    )
+                withCredentials([sshUserPrivateKey(credentialsId: 'teguh522-github')]) {
+                sh """
+                git checkout dev
+                git log --oneline
+                """
+                }
             }
         }
         stage('Test') {
