@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Git') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'fixed')]) {
+                withCredentials([usernamePassword(credentialsId: 'teguh522-github')]) {
                 sh """
                 git checkout dev
                 git log --oneline
