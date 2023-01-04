@@ -15,7 +15,6 @@ pipeline {
                 git push origin dev
                 '''
                 }
-            }
         }
         stage('Test') {
             steps {
