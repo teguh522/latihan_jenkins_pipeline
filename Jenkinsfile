@@ -9,10 +9,10 @@ pipeline {
     stages {
         stage('Git') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'teguh522-github')]) {
                 sh """
                 git checkout dev
-                git log --oneline
+                git cherry-pick ${GIT_COMMIT}
+                git push origin dev
                 """
                 }
             }
