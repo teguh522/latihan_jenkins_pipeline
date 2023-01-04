@@ -12,9 +12,7 @@ pipeline {
                checkout scmGit(
                     branches: [[name: 'dev']],
                     userRemoteConfigs: [[url: 'https://github.com/teguh522/latihan_jenkins_pipeline.git']]
-                    ){
-                        sh 'git log --oneline'
-                    }
+                    )
             }
         }
         stage('Test') {
