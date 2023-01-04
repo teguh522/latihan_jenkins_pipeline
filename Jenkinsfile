@@ -7,7 +7,7 @@ remote.allowAnyHosts = true
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Merge') {
             when{
                 branch "dev"
             }
