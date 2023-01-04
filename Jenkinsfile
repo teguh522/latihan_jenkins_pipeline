@@ -7,16 +7,14 @@ remote.allowAnyHosts = true
 pipeline {
     agent any
     stages {
-        stage('Merge') {
-            when{
-                branch "dev"
-            }
+        stage('Git') {
             steps {
-                sh '''git checkout main
-                git pull origin main
-                git cherry-pick ${GIT_COMMIT}
-                git push origin main
-                '''
+               checkout scmGit(
+                    branches: [[name: 'dev']],
+                    userRemoteConfigs: [[url: 'https://github.com/teguh522/latihan_jenkins_pipeline.git']]
+                    ){
+                        sh 'git log --oneline'
+                    }
             }
         }
         stage('Test') {
