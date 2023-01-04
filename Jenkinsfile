@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Git') {
             steps {
-                withCredentials([sshUserPrivateKey(credentialsId: 'teguh522-github')]) {
+                withCredentials([usernamePassword(credentialsId: 'fixed')]) {
                 sh """
                 git checkout dev
                 git log --oneline
